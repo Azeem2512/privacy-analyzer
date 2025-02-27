@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Risk Analyzer</title>
+</head>
+<body>
+    <h2>🔹 Enter your details for Privacy Risk Analysis 🔹</h2>
+    <form method="post">
+        Full Name: <input type="text" name="name"><br>
+        Email: <input type="email" name="email"><br>
+        Phone Number (optional): <input type="text" name="phone"><br>
+        Home Address (optional): <input type="text" name="address"><br>
+        Date of Birth (YYYY-MM-DD, optional): <input type="text" name="dob"><br>
+        Social Media Handles (comma-separated, optional): <input type="text" name="social_media"><br>
+        <button type="submit">Analyze</button>
+    </form>
+
+    {% if risk_score is not none %}
+        <h3>🔍 Privacy Risk Analysis Report 🔍</h3>
+        <p>🔴 Total Privacy Risk Score: {{ risk_score }}/40</p>
+        {% if risk_score >= 20 %}
+            <p>⚠️ Warning: You are exposing a lot of personal data!</p>
+        {% else %}
+            <p>✅ Good job! Your privacy exposure is minimal.</p>
+        {% endif %}
+    {% endif %}
+</body>
+</html>
